@@ -54,6 +54,19 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
+  {
+    path: '/service',
+    component: Layout,
+    redirect: '/service/list',
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/service/list'),
+        name: '服务列表',
+        meta: { title: '服务列表', icon: 'table' }
+      }
+    ]
+  },
 
   {
     path: '/example',
