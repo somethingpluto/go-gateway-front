@@ -37,20 +37,20 @@ module.exports = {
       errors: true
     },
     proxy: {
-      '/dev-api': {
-        target: 'http://127.0.0.1:8880',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/dev-api': ''
-        }
-      },
       // '/dev-api': {
-      //   target: 'http://120.25.255.207:9210',
+      //   target: 'http://127.0.0.1:8880',
       //   changeOrigin: true,
       //   pathRewrite: {
       //     '^/dev-api': ''
       //   }
       // },
+      '/dev-api': {
+        target: 'http://120.25.255.207:9210',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/dev-api': ''
+        }
+      },
       '/prod-api': {
         target: 'http://120.25.255.207:9210',
         changeOrigin: true,
