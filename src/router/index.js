@@ -51,19 +51,39 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: 'Dashboard', icon: 'dashboard', affix: false }
     }]
   },
   {
     path: '/service',
     component: Layout,
     redirect: '/service/list',
+    name: 'Service',
+    meta: { title: '服务管理', icon: 'table' },
     children: [
       {
         path: 'list',
         component: () => import('@/views/service/list'),
         name: '服务列表',
         meta: { title: '服务列表', icon: 'table' }
+      },
+      {
+        path: 'add_http',
+        component: () => import('@/views/service/AddHttpService'),
+        name: 'AddHTTP',
+        meta: { title: '添加HTTP', icon: 'sort' }
+      },
+      {
+        path: 'add_tcp',
+        component: () => import('@/views/service/AddTcpService'),
+        name: 'AddTCP',
+        meta: { title: '添加TCP', icon: 'down' }
+      },
+      {
+        path: 'add_grpc',
+        component: () => import('@/views/service/AddGrpcService'),
+        name: 'AddHTTP',
+        meta: { title: '添加GRPC', icon: 'rank' }
       }
     ]
   },
