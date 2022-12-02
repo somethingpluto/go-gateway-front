@@ -87,10 +87,27 @@
         </template>
       </el-table-column>
       <el-table-column label="操作" align="center">
-        <template slot-scope="scope">
-          <el-button type="primary">统计</el-button>
-          <el-button type="primary">更新</el-button>
-          <el-button type="danger" @click="handleDeleteService(scope.$index, scope.row)">删除</el-button>
+        <template slot-scope="{row,$index}">
+          <!-- 统计 -->
+          <router-link :to="'/service/service_stat/'+row.id">
+            <el-button style="margin-left:5px" type="primary">统计</el-button>
+          </router-link>
+          <!-- HTTP更新 -->
+          <router-link v-if="row.load_type === 0" :to="'/service/service_edit_http/'+row.id">
+            <el-button style="margin-left:5px" type="primary">更新</el-button>
+          </router-link>
+
+          <!-- TCP更新 -->
+          <router-link v-if="row.load_type === 1" :to="'/service/service_edit_tcp/'+row.id">
+            <el-button style="margin-left:5px" type="primary">更新</el-button>
+          </router-link>
+
+          <!-- GRPC更新 -->
+          <router-link v-if="row.load_type === 2" :to="'/service/service_edit_grpc/'+row.id">
+            <el-button style="margin-left:5px" type="primary">更新</el-button>
+          </router-link>
+
+          <el-button style="margin-left:5px" type="danger" @click="handleDeleteService($index, row)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -199,6 +216,7 @@ export default {
     refresh() {
       this.query.info = ''
       this.query.page_no = 1
+      this.query.page_size = 10
       this.fetchData()
     }
   }

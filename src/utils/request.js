@@ -47,9 +47,8 @@ service.interceptors.response.use(
     // if the custom code is not 0, it is judged as an error.
 
     if (res.errno !== 0) {
-      console.log(res)
       Message({
-        message: res.message || 'Error',
+        message: res.errmsg || 'Error',
         type: 'error',
         duration: 5 * 1000
       })

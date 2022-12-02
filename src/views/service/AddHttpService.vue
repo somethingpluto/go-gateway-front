@@ -112,7 +112,8 @@
 </template>
 
 <script>
-import { serviceAddHttp, serviceDetail, serviceUpdateHttp } from '@/api/service'
+import { addHTTPService, updateHTTPService } from '@/api/http'
+import { serviceDetail } from '@/api/service'
 export default {
   name: 'ServiceCreateHttp',
   data() {
@@ -152,6 +153,7 @@ export default {
     }
   },
   methods: {
+    // 获取服务数据
     fetchData(id) {
       const query = { 'id': id }
       serviceDetail(query).then(response => {
@@ -200,7 +202,7 @@ export default {
       query.upstream_idle_timeout = Number(query.upstream_idle_timeout)
       query.upstream_max_idle = Number(query.upstream_max_idle)
       if (this.isEdit) {
-        serviceUpdateHttp(query).then(response => {
+        updateHTTPService(query).then(response => {
           this.submitButDisabled = false
           this.$notify({
             title: 'Success',
@@ -212,7 +214,7 @@ export default {
           this.submitButDisabled = false
         })
       } else {
-        serviceAddHttp(query).then(response => {
+        addHTTPService(query).then(response => {
           this.submitButDisabled = false
           this.$notify({
             title: 'Success',

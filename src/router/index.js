@@ -71,19 +71,52 @@ export const constantRoutes = [
         path: 'add_http',
         component: () => import('@/views/service/AddHttpService'),
         name: 'AddHTTP',
-        meta: { title: '添加HTTP', icon: 'sort' }
+        meta: { title: '添加HTTP', icon: 'el-icon-sort' }
       },
       {
         path: 'add_tcp',
         component: () => import('@/views/service/AddTcpService'),
         name: 'AddTCP',
-        meta: { title: '添加TCP', icon: 'down' }
+        meta: { title: '添加TCP', icon: 'el-icon-rank' }
       },
       {
         path: 'add_grpc',
         component: () => import('@/views/service/AddGrpcService'),
         name: 'AddHTTP',
-        meta: { title: '添加GRPC', icon: 'rank' }
+        meta: { title: '添加GRPC', icon: 'el-icon-refresh-right' }
+      },
+      {
+        path: 'service_edit_http/:id(\\d+)',
+        component: () => import('@/views/service/AddHttpService'),
+        name: '修改HTTP服务',
+        meta: {
+          title: '修改HTTP服务',
+          icon: 'component',
+          affix: false
+        },
+        hidden: true
+      },
+      {
+        path: 'service_edit_tcp/:id(\\d+)',
+        component: () => import('@/views/service/AddTcpService'),
+        name: '修改TCP服务',
+        meta: {
+          title: '修改TCP服务',
+          icon: 'component',
+          affix: false
+        },
+        hidden: true
+      },
+      {
+        path: 'service_edit_grpc/:id(\\d+)',
+        component: () => import('@/views/service/AddGrpcService'),
+        name: '修改GRPC服务',
+        meta: {
+          title: '修改GRPC服务',
+          icon: 'component',
+          affix: false
+        },
+        hidden: true
       }
     ]
   },
