@@ -51,7 +51,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard', affix: false }
+      meta: { title: '服务信息', icon: 'dashboard', affix: false }
     }]
   },
   {
@@ -82,7 +82,7 @@ export const constantRoutes = [
       {
         path: 'add_grpc',
         component: () => import('@/views/service/AddGrpcService'),
-        name: 'AddHTTP',
+        name: 'AddGRPC',
         meta: { title: '添加GRPC', icon: 'el-icon-refresh-right' }
       },
       {
@@ -113,6 +113,17 @@ export const constantRoutes = [
         name: '修改GRPC服务',
         meta: {
           title: '修改GRPC服务',
+          icon: 'component',
+          affix: false
+        },
+        hidden: true
+      },
+      {
+        path: 'service_stat/:id(\\d+)',
+        component: () => import('@/views/service/Stat'),
+        name: '服务统计',
+        meta: {
+          title: '服务统计',
           icon: 'component',
           affix: false
         },

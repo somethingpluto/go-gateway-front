@@ -23,3 +23,18 @@ export function serviceDetail(query) {
     params: query
   })
 }
+
+export function serviceStat(query) {
+  return request({
+    url: '/service/service_static',
+    method: 'get',
+    params: query
+  })
+}
+
+export function servicePanelData() {
+  return request({
+    url: '/dashboard/panel_group_data',
+    method: 'get'
+  })
+}
