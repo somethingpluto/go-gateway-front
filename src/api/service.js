@@ -38,3 +38,16 @@ export function servicePanelData() {
     method: 'get'
   })
 }
+export function serviceFlowStatData() {
+  return request({
+    url: '/dashboard/flow_stat_data',
+    method: 'get'
+  })
+}
+
+export function servicePieChartData() {
+  return request({
+    url: '/dashboard/pie_chart_data',
+    method: 'get'
+  })
+}

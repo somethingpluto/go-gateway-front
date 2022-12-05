@@ -20,7 +20,7 @@ export default {
     },
     height: {
       type: String,
-      default: '350px'
+      default: '450px'
     },
     autoResize: {
       type: Boolean,
@@ -28,7 +28,14 @@ export default {
     },
     chartData: {
       type: Object,
-      required: true
+      required: true,
+      default: () => {
+        return {
+          title: '今日流量统计',
+          today: [220, 182, 191, 134, 150, 120, 110, 125, 145, 122, 165, 122],
+          yesterday: [120, 110, 125, 145, 122, 165, 122, 220, 182, 191, 134, 150]
+        }
+      }
     }
   },
   data() {
@@ -40,15 +47,11 @@ export default {
     chartData: {
       deep: true,
       handler(val) {
-        this.setOptions(val)
+        this.initChart()
       }
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.initChart()
-    })
-  },
+
   beforeDestroy() {
     if (!this.chart) {
       return
@@ -61,11 +64,17 @@ export default {
       this.chart = echarts.init(this.$el, 'macarons')
       this.setOptions(this.chartData)
     },
-    setOptions({ expectedData, actualData } = {}) {
+    setOptions() {
       this.chart.setOption({
+        title: {
+          text: this.chartData.title,
+          textStyle: {
+            fontSize: 16
+          }
+        },
         xAxis: {
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-          boundaryGap: false,
+          data: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+          boundaryGap: true,
           axisTick: {
             show: false
           }
@@ -74,7 +83,7 @@ export default {
           left: 10,
           right: 10,
           bottom: 20,
-          top: 30,
+          top: 45,
           containLabel: true
         },
         tooltip: {
@@ -85,15 +94,16 @@ export default {
           padding: [5, 10]
         },
         yAxis: {
+          type: 'value',
           axisTick: {
             show: false
           }
         },
         legend: {
-          data: ['expected', 'actual']
+          data: ['今日', '昨日']
         },
         series: [{
-          name: 'expected', itemStyle: {
+          name: '今日', itemStyle: {
             normal: {
               color: '#FF005A',
               lineStyle: {
@@ -104,12 +114,12 @@ export default {
           },
           smooth: true,
           type: 'line',
-          data: expectedData,
+          data: this.chartData.today,
           animationDuration: 2800,
           animationEasing: 'cubicInOut'
         },
         {
-          name: 'actual',
+          name: '昨日',
           smooth: true,
           type: 'line',
           itemStyle: {
@@ -124,7 +134,7 @@ export default {
               }
             }
           },
-          data: actualData,
+          data: this.chartData.yesterday,
           animationDuration: 2800,
           animationEasing: 'quadraticOut'
         }]

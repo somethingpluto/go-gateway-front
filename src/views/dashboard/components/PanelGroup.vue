@@ -72,6 +72,13 @@ export default {
       }
     }
   },
+  watch: {
+    data: {
+      handler: function(newData, oldData) {
+        this.panelGroupData = newData
+      }
+    }
+  },
   created() {
     this.fetchData()
   },
