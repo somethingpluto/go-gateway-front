@@ -1,99 +1,77 @@
-# vue-admin-template
+# Go_Gateway网关管理前台
 
-English | [简体中文](./README-zh.md)
+## 前言
 
-> A minimal vue admin template with Element UI & axios & iconfont & permission control & lint
+​		本前端项目为，Go_Gateway网关的前台管理页面，提供系统服务概览，不同类型服务添加，和服务信息查看等管理系统基础功能，旨在通过前端页面展示的方式，更加便于系统的开发与调试。
 
-**Live demo:** http://panjiachen.github.io/vue-admin-template
+**Go_Gateway后端服务地址:**
 
+✨Github: https://github.com/somethingpluto/go-gateway
 
-**The current version is `v4.0+` build on `vue-cli`. If you want to use the old version , you can switch branch to [tag/3.11.0](https://github.com/PanJiaChen/vue-admin-template/tree/tag/3.11.0), it does not rely on `vue-cli`**
+🚧Gitee: https://gitee.com/chx2333/go_gateway
 
-<p align="center">
-  <b>SPONSORED BY</b>
-</p>
-<p align="center">
-   <a href="https://finclip.com?from=vue_element" title="FinClip" target="_blank">
-      <img height="200px" src="https://gitee.com/panjiachen/gitee-cdn/raw/master/vue%E8%B5%9E%E5%8A%A9.png" title="FinClip">
-   </a>
-</p>
+## 技术选型
 
-## Build Setup
+​		本项目并未从0开始搭建，而是在开源项目vue-admin-template基础上进行的二次开发。涉及到的技术有：
 
-```bash
-# clone the project
-git clone https://github.com/PanJiaChen/vue-admin-template.git
+		1. vue2
+		1. axios
+		1. vuex
+		1. elementUI
+		1. echarts
 
-# enter the project directory
-cd vue-admin-template
+## 使用介绍
 
-# install dependency
-npm install
+### 1.登录界面
 
-# develop
-npm run dev
-```
+![image-20230102192057944](https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/1770/image-20230102192057944.png)
 
-This will automatically open http://localhost:9528
+​			账号密码已自动填充，且在下方进行了显示，用户可直接进行登录
 
-## Build
+### 2.服务信息列表界面
 
-```bash
-# build for test environment
-npm run build:stage
+![image-20230102192205766](https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/1770/image-20230102192205766.png)
 
-# build for production environment
-npm run build:prod
-```
+​		通过图表的方式展示 当前系统的：
 
-## Advanced
+​	1. 服务数量
 
-```bash
-# preview the release environment effect
-npm run preview
+​	2. 当日请求数
 
-# preview the release environment effect + static resource analysis
-npm run preview -- --report
+​	3. 当前QPS
 
-# code format check
-npm run lint
+​	4. 系统系统用户数目
 
-# code format check and auto fix
-npm run lint -- --fix
-```
+​	5. 今日系统流量统计
 
-Refer to [Documentation](https://panjiachen.github.io/vue-element-admin-site/guide/essentials/deploy.html) for more information
+​	6. 和系统中各种服务所占比例
 
-## Demo
+### 3.服务管理额界面
 
-![demo](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/demo.gif)
+![image-20230102192416757](https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/1770/image-20230102192416757.png)
 
-## Extra
+​		显示当前系统中所有服务的信息
 
-If you want router permission && generate menu by user roles , you can use this branch [permission-control](https://github.com/PanJiaChen/vue-admin-template/tree/permission-control)
+### 4.服务具体信息界面
 
-For `typescript` version, you can use [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template) (Credits: [@Armour](https://github.com/Armour))
+![image-20230102192452069](https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/1770/image-20230102192452069.png)
 
-## Related Project
+​		具体显示某个服务的统计信息
 
-- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+### 5.服务更新界面
 
-- [electron-vue-admin](https://github.com/PanJiaChen/electron-vue-admin)
+![image-20230102192526563](https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/1770/image-20230102192526563.png)
 
-- [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
+### 6.创建服务界面
 
-- [awesome-project](https://github.com/PanJiaChen/vue-element-admin/issues/2312)
+### 6.1 创建HTTP服务
 
-## Browsers support
+![image-20230102192610849](https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/1770/image-20230102192610849.png)
 
-Modern browsers and Internet Explorer 10+.
+### 6.2 创建TCP服务
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari |
-| --------- | --------- | --------- | --------- |
-| IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions
+![image-20230102192621124](https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/1770/image-20230102192621124.png)
 
-## License
+### 6.3 创建GRPC服务
 
-[MIT](https://github.com/PanJiaChen/vue-admin-template/blob/master/LICENSE) license.
-
-Copyright (c) 2017-present PanJiaChen
+![image-20230102192629676](https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/1770/image-20230102192629676.png)
